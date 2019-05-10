@@ -111,6 +111,8 @@ class Snapshot : public v8::StartupData {
 
 class Isolate : public v8::Isolate {
  public:
+  Isolate() = delete;
+  ~Isolate() = delete;
   static Isolate* New(Snapshot* snapshot_blob, uint64_t timestamp);
   IsolateData* GetData();
   void SetData(IsolateData* data);
