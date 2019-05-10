@@ -38,3 +38,5 @@
 
 .vscode
 .DS_Store
+*.log
+target
