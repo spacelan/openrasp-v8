@@ -1,16 +1,22 @@
-addons:
-  apt:
-    sources:
-      - ubuntu-toolchain-r-test
-    packages:
-      - g++-5
-      - lcov
-jdk:
-  - openjdk7
-go:
-  - master
+language: cpp
+matrix:
+  include:
+    - os: linux
+      dist: xenial
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+          packages:
+            - lcov
+    - os: osx
+      addons:
+        homebrew:
+          packages:
+            - git-lfs
+    - os: windows
+before_install:
+  - git lfs install
+  - git lfs pull
 script:
-  - mkdir build-base && pushd build-base
-  - cmake -DCMAKE_BUILD_TYPE=Debug -DBUILD_COVERAGE=ON -DCMAKE_CXX_COMPILER=g++-5 ../base
-  - make && make test && make coverage
-  - ldd tests
+  - ./.travis/$TRAVIS_OS_NAME.sh
