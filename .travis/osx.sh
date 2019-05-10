@@ -2,10 +2,12 @@
 
 set -ex
 
-mkdir build && pushd build
+mkdir buildx64 && pushd buildx64
 
-cmake -DCMAKE_VERBOSE_MAKEFILE=ON -DCMAKE_BUILD_TYPE=Release ../base
+cmake -DCMAKE_BUILD_TYPE=Release ../base
 
-make
+make VERBOSE=1 -j
 
 make test
+
+popd
