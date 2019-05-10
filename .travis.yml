@@ -8,7 +8,7 @@ matrix:
           sources:
             - ubuntu-toolchain-r-test
           packages:
-            - lcov
+            - ia32-libs g++-multilib
     - os: osx
       addons:
         homebrew:
