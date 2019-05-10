@@ -8,7 +8,7 @@ matrix:
           sources:
             - ubuntu-toolchain-r-test
           packages:
-            - ia32-libs g++-multilib
+            - g++-multilib
     - os: osx
       addons:
         homebrew:
