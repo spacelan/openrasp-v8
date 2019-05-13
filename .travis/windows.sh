@@ -21,3 +21,9 @@ cmake --build . --config Release
 ./Release/tests "~Exception"
 
 popd
+
+mkdir dist
+
+cp buildx64/Release/tests.exe dist/test-windows-x64
+
+cp buildx32/Release/tests.exe dist/test-windows-x32

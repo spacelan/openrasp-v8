@@ -21,3 +21,9 @@ make VERBOSE=1 -j
 make test
 
 popd
+
+mkdir dist
+
+cp buildx64/tests dist/test-linux-x64
+
+cp buildx32/tests dist/test-linux-x32

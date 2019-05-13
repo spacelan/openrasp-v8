@@ -11,3 +11,7 @@ make VERBOSE=1 -j
 make test
 
 popd
+
+mkdir dist
+
+cp buildx64/tests dist/test-osx-x64
