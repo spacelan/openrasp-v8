@@ -27,7 +27,6 @@ deploy:
   file_glob: true
   file: dist/**/*
   skip_cleanup: true
-  draft: true
   on:
     repo: spacelan/openrasp-v8
     branch: travis
