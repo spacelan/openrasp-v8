@@ -15,7 +15,7 @@ popd
 
 mkdir buildx86 && pushd buildx86
 
-(source /tmp/centos6-sysroot/setx86.sh && cmake -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_CXX_FLAGS="-m32 $CXXFLAGS" -DCMAKE_PREFIX_PATH="../vendors/libc++-linux-x86;../vendors/libv8-7.2-linux-x86" ../java)
+(source /tmp/centos6-sysroot/setx86.sh && cmake -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_CXX_FLAGS="-m32 $CXXFLAGS" ../java)
 
 make VERBOSE=1 -j
 

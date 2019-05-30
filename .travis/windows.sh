@@ -14,7 +14,7 @@ popd
 
 mkdir buildx86 && pushd buildx86
 
-cmake -DCMAKE_VERBOSE_MAKEFILE=ON -DCMAKE_PREFIX_PATH="../vendors/libv8-7.2-windows-x86"  ../java
+cmake -DCMAKE_VERBOSE_MAKEFILE=ON ../java
 
 cmake --build . --config Release
 
