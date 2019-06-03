@@ -27,3 +27,5 @@ mkdir -p natives/linux_32 && cp ../build32/libopenrasp_v8_java.so $_
 mkdir -p natives/linux_64 && cp ../build64/libopenrasp_v8_java.so $_
 
 tar zcf java_natives_linux.tar.gz natives
+
+rm -rf natives

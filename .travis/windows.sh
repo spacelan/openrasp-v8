@@ -22,7 +22,9 @@ popd
 
 mkdir dist && pushd $_
 
-mkdir -p natives/windows_32 && cp ../build32/RelWithDebInfo/libopenrasp_v8_java.so $_
-mkdir -p natives/windows_64 && cp ../build64/RelWithDebInfo/libopenrasp_v8_java.so $_
+mkdir -p natives/windows_32 && cp ../build32/RelWithDebInfo/openrasp_v8_java.lib $_
+mkdir -p natives/windows_64 && cp ../build64/RelWithDebInfo/openrasp_v8_java.lib $_
 
 tar zcf java_natives_windows.tar.gz natives
+
+rm -rf natives
