@@ -4,24 +4,25 @@ set -ex
 
 choco install -y jdk8 -params "both=true"
 
-mkdir buildx64 && pushd buildx64
+mkdir build64 && pushd $_
 
 cmake -DCMAKE_VERBOSE_MAKEFILE=ON -Ax64 ../java
 
-cmake --build . --config Release
+cmake --build . --config RelWithDebInfo
 
 popd
 
-mkdir buildx86 && pushd buildx86
+mkdir build32 && pushd $_
 
 cmake -DCMAKE_VERBOSE_MAKEFILE=ON ../java
 
-cmake --build . --config Release
+cmake --build . --config RelWithDebInfo
 
 popd
 
-mkdir dist
+mkdir dist && pushd $_
 
-cp buildx64/Release/openrasp_v8_java.dll dist/openrasp_v8_java.dll
+mkdir -p natives/windows_32 && cp ../build32/RelWithDebInfo/libopenrasp_v8_java.so $_
+mkdir -p natives/windows_64 && cp ../build64/RelWithDebInfo/libopenrasp_v8_java.so $_
 
-cp buildx86/Release/openrasp_v8_java.dll dist/openrasp_v8_java.dll.x86
+tar zcf java_natives_windows.tar.gz natives

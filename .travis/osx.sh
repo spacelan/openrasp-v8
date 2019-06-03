@@ -2,7 +2,7 @@
 
 set -ex
 
-mkdir buildx64 && pushd buildx64
+mkdir build64 && pushd $_
 
 cmake -DCMAKE_BUILD_TYPE=RelWithDebInfo ../java
 
@@ -10,6 +10,8 @@ make VERBOSE=1 -j
 
 popd
 
-mkdir dist
+mkdir dist && pushd $_
 
-cp buildx64/libopenrasp_v8_java.dylib dist/libopenrasp_v8_java.dylib
+mkdir -p natives/osx_64 && cp ../build64/libopenrasp_v8_java.dylib $_
+
+tar zcf java_natives_osx.tar.gz natives
