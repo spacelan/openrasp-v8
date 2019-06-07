@@ -10,10 +10,14 @@ make VERBOSE=1 -j
 
 popd
 
-mkdir dist && pushd $_
+pushd java/src/main/resources
 
-mkdir -p natives/osx_64 && cp ../build64/libopenrasp_v8_java.dylib $_
+mkdir -p natives/osx_64 && cp ${TRAVIS_BUILD_DIR}/build64/libopenrasp_v8_java.dylib $_
 
 tar zcf java_natives_osx.tar.gz natives
 
-rm -rf natives
+popd
+
+pushd java
+
+mvn test
