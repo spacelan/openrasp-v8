@@ -110,9 +110,9 @@ public class V8Test {
     ByteArrayOutputStream data = new ByteArrayOutputStream();
     JsonStream.serialize(params, data);
     String result = V8.Check("request", data.getByteArray(), data.size(), new ContextImpl(), true);
-    Any any = JsonIterator.deserialize(result.getBytes("UTF-8"));
-    assertEquals(any.toString(),
+    assertEquals(result,
         "[{\"action\":\"log\",\"message\":\"test 中文 & 😊\",\"name\":\"test\",\"confidence\":0}]");
+    Any any = JsonIterator.deserialize(result.getBytes("UTF-8"));
     assertEquals(any.asList().get(0).toString("message"), "test 中文 & 😊");
     assertEquals(V8.ExecuteScript("console.log('test 中文 & 😊'); 'test 中文 & 😊';", "test"), "test 中文 & 😊");
   }
