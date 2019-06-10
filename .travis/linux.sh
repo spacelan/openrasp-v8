@@ -21,15 +21,18 @@ make VERBOSE=1 -j
 
 popd
 
-pushd java/src/main/resources
+mkdir -p java/src/main/resources/natives/linux_32 && cp build32/libopenrasp_v8_java.so $_
 
-mkdir -p natives/linux_32 && cp ${TRAVIS_BUILD_DIR}/build32/libopenrasp_v8_java.so $_
-mkdir -p natives/linux_64 && cp ${TRAVIS_BUILD_DIR}/build64/libopenrasp_v8_java.so $_
-
-tar zcf java_natives_linux.tar.gz natives
-
-popd
+mkdir -p java/src/main/resources/natives/linux_64 && cp build64/libopenrasp_v8_java.so $_
 
 pushd java
 
 mvn test
+
+popd
+
+pushd java/src/main/resources
+
+tar zcf java_natives_linux.tar.gz natives/linux*
+
+popd
