@@ -1,2 +1,2 @@
 language: cpp
-script: wget https://github.com/baidu-security/openrasp-v8/releases/download/v1/java_natives_linux.tar.gz
+script: wget -N -P /tmp https://github.com/baidu-security/openrasp-v8/releases/download/v1/java_natives_linux.tar.gz
