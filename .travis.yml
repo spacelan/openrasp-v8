@@ -15,11 +15,12 @@ matrix:
         - cmake
         update: true
   - os: windows
-before_install:
-- git lfs install
-- git lfs pull
-script:
-- ".travis/$TRAVIS_OS_NAME.sh"
+# before_install:
+# - git lfs install
+# - git lfs pull
+# script:
+# - ".travis/$TRAVIS_OS_NAME.sh"
+script: bash java/fetch_native_libraries.sh
 deploy:
   provider: releases
   api_key:
