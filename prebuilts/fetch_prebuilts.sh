@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -ev
+set -e
  
 ROOT=$(git rev-parse --show-toplevel)
 
@@ -22,6 +22,6 @@ else
   exit 1
 fi
 
-curl -k -L -o $DIR/$FILENAME.download -z $DIR/$FILENAME https://packages.baidu.com/app/openrasp/v8/$FILENAME
+curl -s -k -L -o $DIR/$FILENAME.download -z $DIR/$FILENAME https://packages.baidu.com/app/openrasp/v8/$FILENAME
 [[ -f $DIR/$FILENAME.download ]] && mv $DIR/$FILENAME.download $DIR/$FILENAME
 tar zxf $DIR/$FILENAME -C $ROOT/prebuilts
