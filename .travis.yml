@@ -26,7 +26,7 @@ cache:
   directories:
   - $HOME/cache/
 script:
-- travis_retry .travis/$TRAVIS_OS_NAME.sh
+- .travis/$TRAVIS_OS_NAME.sh
 deploy:
   provider: releases
   api_key:
